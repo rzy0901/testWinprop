@@ -22,7 +22,7 @@
 
 + Simulation settings:
 
-    |                                                          | TX          | RX          | Ray-Tracing | Specifications     | Prediction Height |
+    |                                                          | TX (10W)          | RX          | Ray-Tracing | Specifications     | Prediction Height |
     | -------------------------------------------------------- | ----------- | ----------- | ----------- | ------------------ | ---------------- |
     | [indoor_trajectory.cpp](./indoor_trajectory.cpp)         | omni, 1.25m, 2000 MHz | omni, 1.25m | SRT         | 1m/s RX            | 1.25m            |
     | [indoor_time_invariant.cpp](./indoor_time_invariant.cpp) | omni, 1.25m, 2000 MHz | omni, 1.25m | SRT         | 1m/s Moving Object | 1.25m            |
