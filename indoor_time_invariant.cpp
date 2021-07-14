@@ -2,6 +2,7 @@
 // Created by Ren Zhenyu on 2021/7/7.
 //
 #include <iostream>
+#include <fstream>
 #include <stdio.h>
 #include <cstring>
 #include "Interface/Engine.h"
@@ -63,7 +64,7 @@ int main()
         WinPropArea.LowerLeftY = -2;
         WinPropArea.UpperRightX = 9;
         WinPropArea.UpperRightY = 9;
-        WinPropArea.Resolution = 0.25; // Resolution 0.1 meter
+        WinPropArea.Resolution = 0.25; // Resolution 0.25 meter
         WinPropArea.NrHeights = 1; // Number of prediction heights
         WinPropArea.Heights = &PredictionHeight; // Prediction height 1.25 meter
 
@@ -80,28 +81,49 @@ int main()
 
         /* Definition of outputs to be computed and written in WinProp format. */
         WinPropMore.OutputResults = &OutputResults;
-        OutputResults.StatusLOS = 1;
-        OutputResults.StrFileCIR = 1;
         OutputResults.StrFilePropPaths = 1;
+        OutputResults.Delay = 1;
         OutputResults.AdditionalResultsASCII = 1;
         /* Further parameters: With filtering. */
         WinPropMore.ResultFiltering = 1;
 
-        double timeInstances[11];
-        for(int i = 0; i < 11; i++)
+        const int NbrTimeInstances = 11;
+        WinPropMore.NbrTimeInstances = NbrTimeInstances;
+        double timeInstances[NbrTimeInstances];
+        for(int i = 0; i < WinPropMore.NbrTimeInstances; i++)
             timeInstances[i] = 0.5 * i;
         /* Call the WinProp API to open a project and load the vector database. */
         Error = WinProp_Open(&ProjectHandle, &WinPropScenario, &WinPropCallback);
-
         char resultsPath[300];
         sprintf(resultsPath, API_DATA_FOLDER "indoor_time_invariant");
         // Set time instance and output folder
         WinPropMore.TimeInstances = timeInstances;
-        WinPropMore.NbrTimeInstances = 11;
         OutputResults.ResultPath = resultsPath;
 
         /* ----- Start prediction (including loop over all time instances) ------ */
         Error = WinProp_Predict(ProjectHandle, &WinPropAntenna, &WinPropArea, nullptr, &WinPropMore, &PowerResult, &DelayResult, &LosResult, &RayMatrix, nullptr);
+
+
+        /*------------ Write CIR(field strength, delay) at (3.5,0) to .txt --------------*/
+        int x = 22; // index of pixel
+        int y = 8;// index of 0.125
+        char* filename = API_DATA_FOLDER "indoor_time_invariant/CIR(3.5,0).txt";
+        ofstream myfile(filename);
+        if(!myfile.is_open())
+        {
+            cout << " Can not open " << filename << endl;
+        }
+        /*time(s) field strength(dBuV/m) delay(ns)*/
+        for(int i = 0; i < RayMatrix->NrHeights;i++)
+        {
+            for(int j = 0; j < RayMatrix->Rays[i][x][y].NrRays;j++)
+            /*RayMatrix->Rays(NbrHeights,Columns,Lines)*/
+            myfile << RayMatrix->TimeSteps[i] <<" " << RayMatrix->Rays[i][x][y].Rays[j].FieldStrength<<" "<<RayMatrix->Rays[i][x][y].Rays[j].Delay<<endl;
+        }
+
+//        cout << RayMatrix->Rays[0][x][y].Rays[0].FieldVectors.PolHfieldX << RayMatrix->Rays[0][x][y].Rays[0].FieldVectors.PolHfieldY << RayMatrix->Rays[0][x][y].Rays[0].FieldVectors.PolHfieldZ<< RayMatrix->Rays[0][x][y].Rays[0].FieldVectors.PolVfieldX << RayMatrix->Rays[0][x][y].Rays[0].FieldVectors.PolVfieldY << RayMatrix->Rays[0][x][y].Rays[0].FieldVectors.PolVfieldZ << endl;
+        myfile.close();
+
         WinProp_Close(ProjectHandle);
     }
     return 0;

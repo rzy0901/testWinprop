@@ -1,4 +1,4 @@
-"D:\Download\Clion\CLion 2021.1.2\bin\cmake\win\bin\cmake.exe" -DCMAKE_BUILD_TYPE=Debug -G "CodeBlocks - NMake Makefiles" D:\Codes\testWinprop
+"D:\Download\Clion\CLion 2021.1.2\bin\cmake\win\bin\cmake.exe" -DCMAKE_BUILD_TYPE=Debug -G "CodeBlocks - NMake Makefiles" D:\Codes\testWinprop_v2\testWinprop
 -- Configuring done
 -- Generating done
--- Build files have been written to: D:/Codes/testWinprop/cmake-build-debug
+-- Build files have been written to: D:/Codes/testWinprop_v2/testWinprop/cmake-build-debug

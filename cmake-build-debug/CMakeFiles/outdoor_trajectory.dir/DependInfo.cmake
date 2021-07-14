@@ -4,13 +4,13 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "D:/Codes/testWinprop/outdoor_trajectory.cpp" "D:/Codes/testWinprop/cmake-build-debug/CMakeFiles/outdoor_trajectory.dir/outdoor_trajectory.cpp.obj"
+  "D:/Codes/testWinprop_v2/testWinprop/outdoor_trajectory.cpp" "D:/Codes/testWinprop_v2/testWinprop/cmake-build-debug/CMakeFiles/outdoor_trajectory.dir/outdoor_trajectory.cpp.obj"
   )
 set(CMAKE_CXX_COMPILER_ID "MSVC")
 
 # Preprocessor definitions for this target.
 set(CMAKE_TARGET_DEFINITIONS_CXX
-  "API_DATA_FOLDER=\"D:/Codes/testWinprop/data/\""
+  "API_DATA_FOLDER=\"D:/Codes/testWinprop_v2/testWinprop/data/\""
   "_DLL_ENGINE_IMPORT"
   "_SBCS"
   )
