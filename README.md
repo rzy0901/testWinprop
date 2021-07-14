@@ -6,10 +6,11 @@
 + Two simulation schemes:
     + Time invariant prediction. 
       + Can only add time-invariant components in `.idb`
-      + Generate the prediction result along the trajectory.  
+      + Generate the prediction result on the whole "map" at each time instance.
     + Trajectory prediction. 
       + Could use C++ command to control.
-      + Generate the prediction result on the whole "map" at each time instance.
+      + Generate the prediction result along the trajectory.  
+      
 + Simulation scenarios:
   
   |                | Indoor                                                   | Outdoor (Urban)                                              |
