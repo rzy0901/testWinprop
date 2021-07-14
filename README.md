@@ -1,4 +1,7 @@
 ## testWinProp
+
+==Run the programs again to produce the simulation results.==
+
 + Simulation goal: simulate the channel variations and received power variations due to impacts of moving objects or moving RXs.
 
 + Environment settings: `MSVC(VS 2019)` + `Clion 2021` + `WinProp API 2021 for windows`. Use `CMakeLists.txt` to compile the project.
@@ -10,6 +13,7 @@
     + Trajectory prediction. 
       + Could use C++ command to control.
       + Generate the prediction result along the trajectory.
+    
 + Simulation scenarios:
   
   |                | Indoor                                                   | Outdoor (Urban)                                              |
