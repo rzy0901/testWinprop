@@ -91,7 +91,7 @@ int main()
         WinPropMore.NbrTimeInstances = NbrTimeInstances;
         double timeInstances[NbrTimeInstances];
         for(int i = 0; i < WinPropMore.NbrTimeInstances; i++)
-            timeInstances[i] = 0.5 * i;
+            timeInstances[i] = 0.01 * i;
         /* Call the WinProp API to open a project and load the vector database. */
         Error = WinProp_Open(&ProjectHandle, &WinPropScenario, &WinPropCallback);
         char resultsPath[300];
@@ -114,12 +114,16 @@ int main()
             cout << " Can not open " << filename << endl;
         }
         /*time(s) field strength(dBuV/m) delay(ns)*/
+        cout << endl;
         for(int i = 0; i < RayMatrix->NrHeights;i++)
         {
-            for(int j = 0; j < RayMatrix->Rays[i][x][y].NrRays;j++)
-            /*RayMatrix->Rays(NbrHeights,Columns,Lines)*/
-            myfile << RayMatrix->TimeSteps[i] <<" " << RayMatrix->Rays[i][x][y].Rays[j].FieldStrength<<" "<<RayMatrix->Rays[i][x][y].Rays[j].Delay<<endl;
+            cout << RayMatrix->Rays[i][x][y].NrRays << " ";
+            for(int j = 0; j < RayMatrix->Rays[i][x][y].NrRays;j++){
+                /*RayMatrix->Rays(NbrHeights,Columns,Lines)*/
+                myfile << RayMatrix->TimeSteps[i] <<" " << RayMatrix->Rays[i][x][y].Rays[j].FieldStrength<<" "<<RayMatrix->Rays[i][x][y].Rays[j].Delay<<endl;
+            }
         }
+        cout << endl;
 
 //        cout << RayMatrix->Rays[0][x][y].Rays[0].FieldVectors.PolHfieldX << RayMatrix->Rays[0][x][y].Rays[0].FieldVectors.PolHfieldY << RayMatrix->Rays[0][x][y].Rays[0].FieldVectors.PolHfieldZ<< RayMatrix->Rays[0][x][y].Rays[0].FieldVectors.PolVfieldX << RayMatrix->Rays[0][x][y].Rays[0].FieldVectors.PolVfieldY << RayMatrix->Rays[0][x][y].Rays[0].FieldVectors.PolVfieldZ << endl;
         myfile.close();
