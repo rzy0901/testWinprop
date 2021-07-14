@@ -9,13 +9,7 @@
       + Generate the prediction result on the whole "map" at each time instance.
     + Trajectory prediction. 
       + Could use C++ command to control.
-<<<<<<< HEAD
       + Generate the prediction result along the trajectory.
-
-=======
-      + Generate the prediction result along the trajectory.  
-      
->>>>>>> 3f631e19b0101699caac479c7a208b257d7ce301
 + Simulation scenarios:
   
   |                | Indoor                                                   | Outdoor (Urban)                                              |
