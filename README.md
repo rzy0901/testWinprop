@@ -1,3 +1,8 @@
+
+
+https://user-images.githubusercontent.com/66763689/203083483-530bdf29-da8b-409d-a54a-a99da708b16f.mov
+
+
 ## testWinProp
 
 ==Run the programs again to produce the simulation results.==
