@@ -95,7 +95,7 @@ int main()
         /* Call the WinProp API to open a project and load the vector database. */
         Error = WinProp_Open(&ProjectHandle, &WinPropScenario, &WinPropCallback);
         char resultsPath[300];
-        sprintf(resultsPath, API_DATA_FOLDER "indoor_time_invariant");
+        sprintf(resultsPath, API_DATA_FOLDER "indoor_time_variant");
         // Set time instance and output folder
         WinPropMore.TimeInstances = timeInstances;
         OutputResults.ResultPath = resultsPath;
@@ -107,7 +107,7 @@ int main()
         /*------------ Write CIR(field strength, delay) at (3.5,0) to .txt --------------*/
         int x = 22; // index of pixel
         int y = 8;// index of 0.125
-        char* filename = API_DATA_FOLDER "indoor_time_invariant/CIR(3.5,0).txt";
+        char* filename = API_DATA_FOLDER "indoor_time_variant/CIR(3.5,0).txt";
         ofstream myfile(filename);
         if(!myfile.is_open())
         {

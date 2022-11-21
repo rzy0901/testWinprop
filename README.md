@@ -37,3 +37,32 @@
     + Time-variant scenario in outdoor (urban) database.
     + Add directional antenna to RX.
     + Material settings. See [./data/test_database/记录.md](./data/test_database/记录.md).
+
+## Simulation Result (via MATLAB postprocessing.)
+
+### `Indoor_time_variant.cpp`
+
++ Ray-Tracing result:
+
+<video src="媒体1.mov"></video>
+
++ Channel Impulse Response at pixel [3.5m:3.75m, 0m:0.25m]:
+
+  <center><img src="README.assets/image-20221121221701845.png" alt="image-20221121221701845" style="zoom:25%;" /> <img src="README.assets/image-20221121221728401.png" alt="image-20221121221728401" style="zoom:25%;" /></center>
+
+### `indoor_trajectory.cpp`
+
+![](README.assets/indoor_trajectory.png)
+
+### `outdoor_trajectory.cpp`
+
+![](README.assets/outdoor_trajectory.png)
+
+![](README.assets/outdoor_trajectory2.png)
+
+![](README.assets/outdoor_trajectory3.png)
+
+## See More details
+
++ Look at [2021_7_12.pptx](./2021_7_12.pptx) for detailed results and c++ environment settings.
+
