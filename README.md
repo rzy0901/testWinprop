@@ -44,13 +44,7 @@
 
 + Ray-Tracing result:
 
-  
-
-+ Channel Impulse Response at pixel [3.5m:3.75m, 0m:0.25m]:
-
-  ![](README.assets/图片1.gif)
-
-![](README.assets/图片2.gif)
+  ![](README.assets/indoor_time_variant.png)
 
 ### `indoor_trajectory.cpp`
 
