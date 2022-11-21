@@ -44,11 +44,13 @@
 
 + Ray-Tracing result:
 
-<video src="媒体1.mov"></video>
+  
 
 + Channel Impulse Response at pixel [3.5m:3.75m, 0m:0.25m]:
 
-  <center><img src="README.assets/image-20221121221701845.png" alt="image-20221121221701845" style="zoom:25%;" /> <img src="README.assets/image-20221121221728401.png" alt="image-20221121221728401" style="zoom:25%;" /></center>
+  ![](README.assets/图片1.gif)
+
+![](README.assets/图片2.gif)
 
 ### `indoor_trajectory.cpp`
 
