@@ -1,5 +1,5 @@
 //
-// Created by Ren Zhenyu on 2021/7/7.
+// Created by Ren Zhenyu on 2021/7/7. Modified by Ji Chenqing on 2023/11/16.
 //
 #include <iostream>
 #include <fstream>
@@ -40,7 +40,7 @@ int main()
     // WinProp_Pattern     WinPropPattern;
     WinProp_Additional  WinPropMore;
     WinProp_Propagation_Results OutputResults;
-    double              PredictionHeight = 1.25;
+    double              PredictionHeight = 1;
     /* --------------------------------- Initialization of structures --------------------------- */
     WinProp_Structure_Init_Scenario(&WinPropScenario);
     WinProp_Structure_Init_Area(&WinPropArea);
@@ -87,11 +87,11 @@ int main()
         /* Further parameters: With filtering. */
         WinPropMore.ResultFiltering = 1;
 
-        const int NbrTimeInstances = 11;
+        const int NbrTimeInstances = 8;
         WinPropMore.NbrTimeInstances = NbrTimeInstances;
         double timeInstances[NbrTimeInstances];
         for(int i = 0; i < WinPropMore.NbrTimeInstances; i++)
-            timeInstances[i] = 0.01 * i;
+            timeInstances[i] = i;
         /* Call the WinProp API to open a project and load the vector database. */
         Error = WinProp_Open(&ProjectHandle, &WinPropScenario, &WinPropCallback);
         char resultsPath[300];
@@ -101,13 +101,16 @@ int main()
         OutputResults.ResultPath = resultsPath;
 
         /* ----- Start prediction (including loop over all time instances) ------ */
-        Error = WinProp_Predict(ProjectHandle, &WinPropAntenna, &WinPropArea, nullptr, &WinPropMore, &PowerResult, &DelayResult, &LosResult, &RayMatrix, nullptr);
+        Error = WinProp_Predict(ProjectHandle, &WinPropAntenna, &WinPropArea,
+                                nullptr, &WinPropMore, &PowerResult,
+                                &DelayResult, &LosResult, &RayMatrix,
+                                nullptr,nullptr, nullptr);
 
 
         /*------------ Write CIR(field strength, delay) at (3.5,0) to .txt --------------*/
         int x = 22; // index of pixel
         int y = 8;// index of 0.125
-        char* filename = API_DATA_FOLDER "indoor_time_variant/CIR(3.5,0).txt";
+        char* filename = API_DATA_FOLDER "indoor_time_variant/CIR(3.5,0).csv";
         ofstream myfile(filename);
         if(!myfile.is_open())
         {
@@ -115,12 +118,21 @@ int main()
         }
         /*time(s) field strength(dBuV/m) delay(ns)*/
         cout << endl;
+        myfile << "TimeSteps,Delay,FieldStrength,DopplerShift,AoD_Azimuth,AoA_Azimuth,AoD_Elevation,AoA_Elevation"<<endl;
         for(int i = 0; i < RayMatrix->NrHeights;i++)
         {
-            cout << RayMatrix->Rays[i][x][y].NrRays << " ";
+            cout << RayMatrix->Rays[i][x][y].NrRays << ",";
             for(int j = 0; j < RayMatrix->Rays[i][x][y].NrRays;j++){
                 /*RayMatrix->Rays(NbrHeights,Columns,Lines)*/
-                myfile << RayMatrix->TimeSteps[i] <<" " << RayMatrix->Rays[i][x][y].Rays[j].FieldStrength<<" "<<RayMatrix->Rays[i][x][y].Rays[j].Delay<<endl;
+                myfile << RayMatrix->TimeSteps[i] <<","
+                <<RayMatrix->Rays[i][x][y].Rays[j].Delay<<","
+                << RayMatrix->Rays[i][x][y].Rays[j].FieldStrength<<","
+                <<RayMatrix->Rays[i][x][y].Rays[j].DopplerShift<<","
+                << RayMatrix->Rays[i][x][y].Rays[j].AngleAzimutBTS<<","
+                << RayMatrix->Rays[i][x][y].Rays[j].AngleAzimutMS<<","
+                << RayMatrix->Rays[i][x][y].Rays[j].AngleElevationBTS<<","
+                << RayMatrix->Rays[i][x][y].Rays[j].AngleElevationMS<<","
+                <<endl;
             }
         }
         cout << endl;

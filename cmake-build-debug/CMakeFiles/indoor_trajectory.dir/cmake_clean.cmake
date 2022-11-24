@@ -1,5 +1,6 @@
 file(REMOVE_RECURSE
   "CMakeFiles/indoor_trajectory.dir/indoor_trajectory.cpp.obj"
+  "CMakeFiles/indoor_trajectory.dir/indoor_trajectory.cpp.obj.d"
   "indoor_trajectory.exe"
   "indoor_trajectory.exe.manifest"
   "indoor_trajectory.lib"

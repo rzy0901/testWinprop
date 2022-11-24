@@ -1,5 +1,6 @@
 file(REMOVE_RECURSE
   "CMakeFiles/outdoor_trajectory.dir/outdoor_trajectory.cpp.obj"
+  "CMakeFiles/outdoor_trajectory.dir/outdoor_trajectory.cpp.obj.d"
   "outdoor_trajectory.exe"
   "outdoor_trajectory.exe.manifest"
   "outdoor_trajectory.lib"

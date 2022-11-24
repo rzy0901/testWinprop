@@ -1,5 +1,6 @@
 file(REMOVE_RECURSE
   "CMakeFiles/indoor_time_variant.dir/indoor_time_variant.cpp.obj"
+  "CMakeFiles/indoor_time_variant.dir/indoor_time_variant.cpp.obj.d"
   "indoor_time_variant.exe"
   "indoor_time_variant.exe.manifest"
   "indoor_time_variant.lib"

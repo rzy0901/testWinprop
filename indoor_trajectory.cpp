@@ -1,7 +1,8 @@
 //
-// Created by Ren Zhenyu on 2021/7/7.
+// Created by Ren Zhenyu on 2021/7/7. Modified by Ji Chenqing on 2023/11/16.
 //
 #include <iostream>
+#include <fstream>
 #include <stdio.h>
 #include <cstring>
 #include "Interface/Engine.h"
@@ -14,6 +15,7 @@
 #include "Public/Interface/Clutter.h"
 #include "Public/Interface/Topo.h"
 
+
 int _STD_CALL CallbackMessage(const char *Text);
 int _STD_CALL CallbackProgress(int value, const char* text);
 int _STD_CALL CallbackError(const char *Message, int Mode);
@@ -25,6 +27,8 @@ using namespace std;
 #ifndef API_DATA_FOLDER
 #define API_DATA_FOLDER "D:/Codes/testWinprop/data/"
 #endif
+
+
 int main()
 {
     int                 Error = 0, ProjectHandle = 0;
@@ -45,11 +49,17 @@ int main()
     /* -------------------------- Load indoor vector database and initialise scenario ------------ */
     /* Assign database name. */
     WinPropScenario.Scenario = WINPROP_SCENARIO_INDOOR;
-    WinPropScenario.VectorDatabase = API_DATA_FOLDER "test_database/indoor_office [0.00s].idb";
+    WinPropScenario.VectorDatabase = API_DATA_FOLDER "test_database/indoor_office.idb";
     /* Define callback functions. */
     WinPropCallback.Percentage = CallbackProgress;
     WinPropCallback.Message = CallbackMessage;
     WinPropCallback.Error = CallbackError;
+
+    const int NbrTimeInstances = 8;
+    WinPropMore.NbrTimeInstances = NbrTimeInstances;
+    double timeInstances[NbrTimeInstances];
+    for(int i = 0; i < WinPropMore.NbrTimeInstances; i++)
+        timeInstances[i] = i;
     /* Call the WinProp API to open a project and load the vector database. */
     Error = WinProp_Open(&ProjectHandle, &WinPropScenario, &WinPropCallback);
     /* --------------------------------------- Set up prediction --------------------------------- */
@@ -59,9 +69,9 @@ int main()
         WinPropTrajectory.NrPoints = 3; // Number of corners of the trajectory.
         WinPropTrajectory.samplingResolution = 0.1;
         WinProp_Trajectory_Point points[3];
-        points[0] = {COORDPOINT{6.00,1.50,1.25},1.0,0,0,0};
-        points[1] = {COORDPOINT{3.5,1.5,1.25},1.0,0,0,0};
-        points[2] = {COORDPOINT{3.5,6.5,1.25},1.0,0,0,0};
+        points[0] = {COORDPOINT{6.00,1.50,1},1.0,0,0,0};
+        points[1] = {COORDPOINT{3.5,1.5,1},1.0,0,0,0};
+        points[2] = {COORDPOINT{3.5,6.5,1},1.0,0,0,0};
         WinPropTrajectory.Points = points;
         WinPropTrajectory.PointSize = 0.1; // Resolution for each sampling point, default by 1.
 
@@ -79,6 +89,7 @@ int main()
         /* Definition of outputs to be computed and written in WinProp format. */
         WinPropMore.OutputResults = &OutputResults;
         OutputResults.ResultPath = API_DATA_FOLDER "indoor_trajectory"; // Output data directory
+        WinPropMore.TimeInstances = timeInstances;
         OutputResults.AdditionalResultsASCII = 1;
         OutputResults.StrFilePropPaths = 1;
         OutputResults.RayFilePropPaths = 1;
@@ -86,9 +97,51 @@ int main()
         WinPropMore.ResultFiltering = 1;
 
         /* ------------------------------------ Start prediction -------------------------------- */
-        WinProp_Predict_Trajectories(ProjectHandle, &WinPropAntenna,&WinPropTrajectory,1, nullptr,&WinPropMore,&TrajectoryList);
+        WinProp_Predict_Trajectories(ProjectHandle, &WinPropAntenna,&WinPropTrajectory,
+                                     1, nullptr,&WinPropMore,
+                                     &TrajectoryList,nullptr,nullptr);
+
+        /*------------ Write CIR(field strength, delay) at (3.5,0) to .txt --------------*/
+//        selected_point_index = 40; //selected the sampled 40 in each timestamp to show the parameters
+        char* filename = API_DATA_FOLDER "indoor_trajectory/CIR(3.5,0).csv";
+        ofstream myfile(filename);
+        if(!myfile.is_open())
+        {
+            cout << " Can not open " << filename << endl;
+        }
+        /*time(s) field strength(dBuV/m) delay(ns)*/
+        cout << endl;
+//        cout << TrajectoryList->NrTrajectories << endl;
+        myfile << "TimeSteps,Delay,FieldStrength,DopplerShift,AoD_Azimuth,AoA_Azimuth,AoD_Elevation,AoA_Elevation"<<endl;
+            for (int i = 0; i < TrajectoryList->trajectories[0].NrSampledPoints; i++) {
+//                cout << TrajectoryList->trajectories[0].NrSampledPoints << endl;
+                for(int m = 0; m < TrajectoryList->trajectories[0].ResultPoints.NrTimeSteps;m++) {
+                    cout << TrajectoryList->trajectories[0].ResultPoints.NrTimeSteps << endl;
+                    for (int j = 0; j < TrajectoryList->trajectories[0].ResultPoints.ResultPoints->Rays.NrRays; j++) {
+                        /*RayMatrix->Rays(NbrHeights,Columns,Lines)*/
+                        myfile << timeInstances[m] << ","
+                               << TrajectoryList->trajectories[0].ResultPoints.ResultPoints[i].Rays.Rays[j].Delay << ","
+                               << TrajectoryList->trajectories[0].ResultPoints.ResultPoints[i].Rays.Rays[j].FieldStrength
+                               << ","
+                               << TrajectoryList->trajectories[0].ResultPoints.ResultPoints[i].Rays.Rays[j].DopplerShift
+                               << ","
+                               << TrajectoryList->trajectories[0].ResultPoints.ResultPoints[i].Rays.Rays[j].AngleAzimutBTS
+                               << ","
+                               << TrajectoryList->trajectories[0].ResultPoints.ResultPoints[i].Rays.Rays[j].AngleAzimutMS
+                               << ","
+                               << TrajectoryList->trajectories[0].ResultPoints.ResultPoints[i].Rays.Rays[j].AngleElevationBTS
+                               << ","
+                               << TrajectoryList->trajectories[0].ResultPoints.ResultPoints[i].Rays.Rays[j].AngleElevationMS
+                               << ","
+                               << endl;
+                }
+            }
+        }
+        cout << endl;
+//        cout << RayMatrix->Rays[0][x][y].Rays[0].FieldVectors.PolHfieldX << RayMatrix->Rays[0][x][y].Rays[0].FieldVectors.PolHfieldY << RayMatrix->Rays[0][x][y].Rays[0].FieldVectors.PolHfieldZ<< RayMatrix->Rays[0][x][y].Rays[0].FieldVectors.PolVfieldX << RayMatrix->Rays[0][x][y].Rays[0].FieldVectors.PolVfieldY << RayMatrix->Rays[0][x][y].Rays[0].FieldVectors.PolVfieldZ << endl;
+        myfile.close();
+        WinProp_Close(ProjectHandle);
     }
-    WinProp_Close(ProjectHandle);
     return 0;
 }
 

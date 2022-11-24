@@ -1,11 +1,9 @@
 
-
-https://user-images.githubusercontent.com/66763689/203083483-530bdf29-da8b-409d-a54a-a99da708b16f.mov
-
+<https://user-images.githubusercontent.com/66763689/203083483-530bdf29-da8b-409d-a54a-a99da708b16f.mov>
 
 ## testWinProp
 
-==Run the programs again to produce the simulation results.==
+**Run the programs again to produce the simulation results.**
 
 + Simulation goal: simulate the channel variations and received power variations due to impacts of moving objects or moving RXs.
 
@@ -37,6 +35,7 @@ https://user-images.githubusercontent.com/66763689/203083483-530bdf29-da8b-409d-
     | [indoor_time_variant.cpp](./indoor_time_variant.cpp) | omni, 1.25m, 2000 MHz | omni, 1.25m | SRT         | 1m/s Moving Object | 1.25m            |
     | [outdoor_trajectory.cpp](outdoor_trajectory.cpp)     | omni, 15m, 2000 MHz | omni, 1.5m| DPM, SRT (Treated as indoor), IRT (Preprocess the database) | 10m/s moving RX | 1.5m |
     | Time variant scenario in outdoor (Not completed yet.)                                                       |             |             |             |                    |                  |
+ 
 >  We could import the exported data into `MATLAB` to do further processing.
  + Remaining problems:
     + Time-variant scenario in outdoor (urban) database.

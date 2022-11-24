@@ -8,28 +8,28 @@
 		<Option virtualFolders="CMake Files\;"/>
 		<Build>
 			<Target title="all">
-				<Option working_dir="C:/Users/admin/Desktop/testWinprop/cmake-build-debug"/>
+				<Option working_dir="E:/Desktop/testWinprop/cmake-build-debug"/>
 				<Option type="4"/>
 				<MakeCommands>
-					<Build command="nmake /NOLOGO /f C:\Users\admin\Desktop\testWinprop\cmake-build-debug\Makefile VERBOSE=1 all"/>
-					<CompileFile command="nmake /NOLOGO /f C:\Users\admin\Desktop\testWinprop\cmake-build-debug\Makefile VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="nmake /NOLOGO /f C:\Users\admin\Desktop\testWinprop\cmake-build-debug\Makefile VERBOSE=1 clean"/>
-					<DistClean command="nmake /NOLOGO /f C:\Users\admin\Desktop\testWinprop\cmake-build-debug\Makefile VERBOSE=1 clean"/>
+					<Build command="nmake /NOLOGO /f E:\Desktop\testWinprop\cmake-build-debug\Makefile VERBOSE=1 all"/>
+					<CompileFile command="nmake /NOLOGO /f E:\Desktop\testWinprop\cmake-build-debug\Makefile VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="nmake /NOLOGO /f E:\Desktop\testWinprop\cmake-build-debug\Makefile VERBOSE=1 clean"/>
+					<DistClean command="nmake /NOLOGO /f E:\Desktop\testWinprop\cmake-build-debug\Makefile VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="indoor_time_variant">
-				<Option output="C:/Users/admin/Desktop/testWinprop/cmake-build-debug/indoor_time_variant.exe" prefix_auto="0" extension_auto="0"/>
-				<Option working_dir="C:/Users/admin/Desktop/testWinprop/cmake-build-debug"/>
+				<Option output="E:/Desktop/testWinprop/cmake-build-debug/indoor_time_variant.exe" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="E:/Desktop/testWinprop/cmake-build-debug"/>
 				<Option object_output="./"/>
 				<Option type="1"/>
 				<Option compiler="msvc8"/>
 				<Compiler>
-					<Add option="-DAPI_DATA_FOLDER=&quot;C:/Users/admin/Desktop/testWinprop/data/&quot;"/>
+					<Add option="-DAPI_DATA_FOLDER=&quot;E:/Desktop/testWinprop/data/&quot;"/>
 					<Add option="-D_SBCS"/>
 					<Add option="-D_DLL_ENGINE_IMPORT"/>
-					<Add directory="D:/Download/Altair_2021/feko/api/winprop/source"/>
-					<Add directory="C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30037\ATLMFC\include"/>
-					<Add directory="C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30037\include"/>
+					<Add directory="D:/Program Files/Altair/2022/feko/api/winprop/source"/>
+					<Add directory="C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30133\ATLMFC\include"/>
+					<Add directory="C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30133\include"/>
 					<Add directory="C:\Program Files (x86)\Windows Kits\10\include\10.0.19041.0\ucrt"/>
 					<Add directory="C:\Program Files (x86)\Windows Kits\10\include\10.0.19041.0\shared"/>
 					<Add directory="C:\Program Files (x86)\Windows Kits\10\include\10.0.19041.0\um"/>
@@ -37,25 +37,25 @@
 					<Add directory="C:\Program Files (x86)\Windows Kits\10\include\10.0.19041.0\cppwinrt"/>
 				</Compiler>
 				<MakeCommands>
-					<Build command="nmake /NOLOGO /f C:\Users\admin\Desktop\testWinprop\cmake-build-debug\Makefile VERBOSE=1 indoor_time_variant"/>
-					<CompileFile command="nmake /NOLOGO /f C:\Users\admin\Desktop\testWinprop\cmake-build-debug\Makefile VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="nmake /NOLOGO /f C:\Users\admin\Desktop\testWinprop\cmake-build-debug\Makefile VERBOSE=1 clean"/>
-					<DistClean command="nmake /NOLOGO /f C:\Users\admin\Desktop\testWinprop\cmake-build-debug\Makefile VERBOSE=1 clean"/>
+					<Build command="nmake /NOLOGO /f E:\Desktop\testWinprop\cmake-build-debug\Makefile VERBOSE=1 indoor_time_variant"/>
+					<CompileFile command="nmake /NOLOGO /f E:\Desktop\testWinprop\cmake-build-debug\Makefile VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="nmake /NOLOGO /f E:\Desktop\testWinprop\cmake-build-debug\Makefile VERBOSE=1 clean"/>
+					<DistClean command="nmake /NOLOGO /f E:\Desktop\testWinprop\cmake-build-debug\Makefile VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="indoor_time_variant/fast">
-				<Option output="C:/Users/admin/Desktop/testWinprop/cmake-build-debug/indoor_time_variant.exe" prefix_auto="0" extension_auto="0"/>
-				<Option working_dir="C:/Users/admin/Desktop/testWinprop/cmake-build-debug"/>
+				<Option output="E:/Desktop/testWinprop/cmake-build-debug/indoor_time_variant.exe" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="E:/Desktop/testWinprop/cmake-build-debug"/>
 				<Option object_output="./"/>
 				<Option type="1"/>
 				<Option compiler="msvc8"/>
 				<Compiler>
-					<Add option="-DAPI_DATA_FOLDER=&quot;C:/Users/admin/Desktop/testWinprop/data/&quot;"/>
+					<Add option="-DAPI_DATA_FOLDER=&quot;E:/Desktop/testWinprop/data/&quot;"/>
 					<Add option="-D_SBCS"/>
 					<Add option="-D_DLL_ENGINE_IMPORT"/>
-					<Add directory="D:/Download/Altair_2021/feko/api/winprop/source"/>
-					<Add directory="C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30037\ATLMFC\include"/>
-					<Add directory="C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30037\include"/>
+					<Add directory="D:/Program Files/Altair/2022/feko/api/winprop/source"/>
+					<Add directory="C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30133\ATLMFC\include"/>
+					<Add directory="C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30133\include"/>
 					<Add directory="C:\Program Files (x86)\Windows Kits\10\include\10.0.19041.0\ucrt"/>
 					<Add directory="C:\Program Files (x86)\Windows Kits\10\include\10.0.19041.0\shared"/>
 					<Add directory="C:\Program Files (x86)\Windows Kits\10\include\10.0.19041.0\um"/>
@@ -63,25 +63,25 @@
 					<Add directory="C:\Program Files (x86)\Windows Kits\10\include\10.0.19041.0\cppwinrt"/>
 				</Compiler>
 				<MakeCommands>
-					<Build command="nmake /NOLOGO /f C:\Users\admin\Desktop\testWinprop\cmake-build-debug\Makefile VERBOSE=1 indoor_time_variant/fast"/>
-					<CompileFile command="nmake /NOLOGO /f C:\Users\admin\Desktop\testWinprop\cmake-build-debug\Makefile VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="nmake /NOLOGO /f C:\Users\admin\Desktop\testWinprop\cmake-build-debug\Makefile VERBOSE=1 clean"/>
-					<DistClean command="nmake /NOLOGO /f C:\Users\admin\Desktop\testWinprop\cmake-build-debug\Makefile VERBOSE=1 clean"/>
+					<Build command="nmake /NOLOGO /f E:\Desktop\testWinprop\cmake-build-debug\Makefile VERBOSE=1 indoor_time_variant/fast"/>
+					<CompileFile command="nmake /NOLOGO /f E:\Desktop\testWinprop\cmake-build-debug\Makefile VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="nmake /NOLOGO /f E:\Desktop\testWinprop\cmake-build-debug\Makefile VERBOSE=1 clean"/>
+					<DistClean command="nmake /NOLOGO /f E:\Desktop\testWinprop\cmake-build-debug\Makefile VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="indoor_trajectory">
-				<Option output="C:/Users/admin/Desktop/testWinprop/cmake-build-debug/indoor_trajectory.exe" prefix_auto="0" extension_auto="0"/>
-				<Option working_dir="C:/Users/admin/Desktop/testWinprop/cmake-build-debug"/>
+				<Option output="E:/Desktop/testWinprop/cmake-build-debug/indoor_trajectory.exe" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="E:/Desktop/testWinprop/cmake-build-debug"/>
 				<Option object_output="./"/>
 				<Option type="1"/>
 				<Option compiler="msvc8"/>
 				<Compiler>
-					<Add option="-DAPI_DATA_FOLDER=&quot;C:/Users/admin/Desktop/testWinprop/data/&quot;"/>
+					<Add option="-DAPI_DATA_FOLDER=&quot;E:/Desktop/testWinprop/data/&quot;"/>
 					<Add option="-D_SBCS"/>
 					<Add option="-D_DLL_ENGINE_IMPORT"/>
-					<Add directory="D:/Download/Altair_2021/feko/api/winprop/source"/>
-					<Add directory="C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30037\ATLMFC\include"/>
-					<Add directory="C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30037\include"/>
+					<Add directory="D:/Program Files/Altair/2022/feko/api/winprop/source"/>
+					<Add directory="C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30133\ATLMFC\include"/>
+					<Add directory="C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30133\include"/>
 					<Add directory="C:\Program Files (x86)\Windows Kits\10\include\10.0.19041.0\ucrt"/>
 					<Add directory="C:\Program Files (x86)\Windows Kits\10\include\10.0.19041.0\shared"/>
 					<Add directory="C:\Program Files (x86)\Windows Kits\10\include\10.0.19041.0\um"/>
@@ -89,25 +89,25 @@
 					<Add directory="C:\Program Files (x86)\Windows Kits\10\include\10.0.19041.0\cppwinrt"/>
 				</Compiler>
 				<MakeCommands>
-					<Build command="nmake /NOLOGO /f C:\Users\admin\Desktop\testWinprop\cmake-build-debug\Makefile VERBOSE=1 indoor_trajectory"/>
-					<CompileFile command="nmake /NOLOGO /f C:\Users\admin\Desktop\testWinprop\cmake-build-debug\Makefile VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="nmake /NOLOGO /f C:\Users\admin\Desktop\testWinprop\cmake-build-debug\Makefile VERBOSE=1 clean"/>
-					<DistClean command="nmake /NOLOGO /f C:\Users\admin\Desktop\testWinprop\cmake-build-debug\Makefile VERBOSE=1 clean"/>
+					<Build command="nmake /NOLOGO /f E:\Desktop\testWinprop\cmake-build-debug\Makefile VERBOSE=1 indoor_trajectory"/>
+					<CompileFile command="nmake /NOLOGO /f E:\Desktop\testWinprop\cmake-build-debug\Makefile VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="nmake /NOLOGO /f E:\Desktop\testWinprop\cmake-build-debug\Makefile VERBOSE=1 clean"/>
+					<DistClean command="nmake /NOLOGO /f E:\Desktop\testWinprop\cmake-build-debug\Makefile VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="indoor_trajectory/fast">
-				<Option output="C:/Users/admin/Desktop/testWinprop/cmake-build-debug/indoor_trajectory.exe" prefix_auto="0" extension_auto="0"/>
-				<Option working_dir="C:/Users/admin/Desktop/testWinprop/cmake-build-debug"/>
+				<Option output="E:/Desktop/testWinprop/cmake-build-debug/indoor_trajectory.exe" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="E:/Desktop/testWinprop/cmake-build-debug"/>
 				<Option object_output="./"/>
 				<Option type="1"/>
 				<Option compiler="msvc8"/>
 				<Compiler>
-					<Add option="-DAPI_DATA_FOLDER=&quot;C:/Users/admin/Desktop/testWinprop/data/&quot;"/>
+					<Add option="-DAPI_DATA_FOLDER=&quot;E:/Desktop/testWinprop/data/&quot;"/>
 					<Add option="-D_SBCS"/>
 					<Add option="-D_DLL_ENGINE_IMPORT"/>
-					<Add directory="D:/Download/Altair_2021/feko/api/winprop/source"/>
-					<Add directory="C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30037\ATLMFC\include"/>
-					<Add directory="C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30037\include"/>
+					<Add directory="D:/Program Files/Altair/2022/feko/api/winprop/source"/>
+					<Add directory="C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30133\ATLMFC\include"/>
+					<Add directory="C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30133\include"/>
 					<Add directory="C:\Program Files (x86)\Windows Kits\10\include\10.0.19041.0\ucrt"/>
 					<Add directory="C:\Program Files (x86)\Windows Kits\10\include\10.0.19041.0\shared"/>
 					<Add directory="C:\Program Files (x86)\Windows Kits\10\include\10.0.19041.0\um"/>
@@ -115,25 +115,25 @@
 					<Add directory="C:\Program Files (x86)\Windows Kits\10\include\10.0.19041.0\cppwinrt"/>
 				</Compiler>
 				<MakeCommands>
-					<Build command="nmake /NOLOGO /f C:\Users\admin\Desktop\testWinprop\cmake-build-debug\Makefile VERBOSE=1 indoor_trajectory/fast"/>
-					<CompileFile command="nmake /NOLOGO /f C:\Users\admin\Desktop\testWinprop\cmake-build-debug\Makefile VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="nmake /NOLOGO /f C:\Users\admin\Desktop\testWinprop\cmake-build-debug\Makefile VERBOSE=1 clean"/>
-					<DistClean command="nmake /NOLOGO /f C:\Users\admin\Desktop\testWinprop\cmake-build-debug\Makefile VERBOSE=1 clean"/>
+					<Build command="nmake /NOLOGO /f E:\Desktop\testWinprop\cmake-build-debug\Makefile VERBOSE=1 indoor_trajectory/fast"/>
+					<CompileFile command="nmake /NOLOGO /f E:\Desktop\testWinprop\cmake-build-debug\Makefile VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="nmake /NOLOGO /f E:\Desktop\testWinprop\cmake-build-debug\Makefile VERBOSE=1 clean"/>
+					<DistClean command="nmake /NOLOGO /f E:\Desktop\testWinprop\cmake-build-debug\Makefile VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="outdoor_trajectory">
-				<Option output="C:/Users/admin/Desktop/testWinprop/cmake-build-debug/outdoor_trajectory.exe" prefix_auto="0" extension_auto="0"/>
-				<Option working_dir="C:/Users/admin/Desktop/testWinprop/cmake-build-debug"/>
+				<Option output="E:/Desktop/testWinprop/cmake-build-debug/outdoor_trajectory.exe" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="E:/Desktop/testWinprop/cmake-build-debug"/>
 				<Option object_output="./"/>
 				<Option type="1"/>
 				<Option compiler="msvc8"/>
 				<Compiler>
-					<Add option="-DAPI_DATA_FOLDER=&quot;C:/Users/admin/Desktop/testWinprop/data/&quot;"/>
+					<Add option="-DAPI_DATA_FOLDER=&quot;E:/Desktop/testWinprop/data/&quot;"/>
 					<Add option="-D_SBCS"/>
 					<Add option="-D_DLL_ENGINE_IMPORT"/>
-					<Add directory="D:/Download/Altair_2021/feko/api/winprop/source"/>
-					<Add directory="C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30037\ATLMFC\include"/>
-					<Add directory="C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30037\include"/>
+					<Add directory="D:/Program Files/Altair/2022/feko/api/winprop/source"/>
+					<Add directory="C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30133\ATLMFC\include"/>
+					<Add directory="C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30133\include"/>
 					<Add directory="C:\Program Files (x86)\Windows Kits\10\include\10.0.19041.0\ucrt"/>
 					<Add directory="C:\Program Files (x86)\Windows Kits\10\include\10.0.19041.0\shared"/>
 					<Add directory="C:\Program Files (x86)\Windows Kits\10\include\10.0.19041.0\um"/>
@@ -141,25 +141,25 @@
 					<Add directory="C:\Program Files (x86)\Windows Kits\10\include\10.0.19041.0\cppwinrt"/>
 				</Compiler>
 				<MakeCommands>
-					<Build command="nmake /NOLOGO /f C:\Users\admin\Desktop\testWinprop\cmake-build-debug\Makefile VERBOSE=1 outdoor_trajectory"/>
-					<CompileFile command="nmake /NOLOGO /f C:\Users\admin\Desktop\testWinprop\cmake-build-debug\Makefile VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="nmake /NOLOGO /f C:\Users\admin\Desktop\testWinprop\cmake-build-debug\Makefile VERBOSE=1 clean"/>
-					<DistClean command="nmake /NOLOGO /f C:\Users\admin\Desktop\testWinprop\cmake-build-debug\Makefile VERBOSE=1 clean"/>
+					<Build command="nmake /NOLOGO /f E:\Desktop\testWinprop\cmake-build-debug\Makefile VERBOSE=1 outdoor_trajectory"/>
+					<CompileFile command="nmake /NOLOGO /f E:\Desktop\testWinprop\cmake-build-debug\Makefile VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="nmake /NOLOGO /f E:\Desktop\testWinprop\cmake-build-debug\Makefile VERBOSE=1 clean"/>
+					<DistClean command="nmake /NOLOGO /f E:\Desktop\testWinprop\cmake-build-debug\Makefile VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="outdoor_trajectory/fast">
-				<Option output="C:/Users/admin/Desktop/testWinprop/cmake-build-debug/outdoor_trajectory.exe" prefix_auto="0" extension_auto="0"/>
-				<Option working_dir="C:/Users/admin/Desktop/testWinprop/cmake-build-debug"/>
+				<Option output="E:/Desktop/testWinprop/cmake-build-debug/outdoor_trajectory.exe" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="E:/Desktop/testWinprop/cmake-build-debug"/>
 				<Option object_output="./"/>
 				<Option type="1"/>
 				<Option compiler="msvc8"/>
 				<Compiler>
-					<Add option="-DAPI_DATA_FOLDER=&quot;C:/Users/admin/Desktop/testWinprop/data/&quot;"/>
+					<Add option="-DAPI_DATA_FOLDER=&quot;E:/Desktop/testWinprop/data/&quot;"/>
 					<Add option="-D_SBCS"/>
 					<Add option="-D_DLL_ENGINE_IMPORT"/>
-					<Add directory="D:/Download/Altair_2021/feko/api/winprop/source"/>
-					<Add directory="C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30037\ATLMFC\include"/>
-					<Add directory="C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30037\include"/>
+					<Add directory="D:/Program Files/Altair/2022/feko/api/winprop/source"/>
+					<Add directory="C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30133\ATLMFC\include"/>
+					<Add directory="C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30133\include"/>
 					<Add directory="C:\Program Files (x86)\Windows Kits\10\include\10.0.19041.0\ucrt"/>
 					<Add directory="C:\Program Files (x86)\Windows Kits\10\include\10.0.19041.0\shared"/>
 					<Add directory="C:\Program Files (x86)\Windows Kits\10\include\10.0.19041.0\um"/>
@@ -167,43 +167,43 @@
 					<Add directory="C:\Program Files (x86)\Windows Kits\10\include\10.0.19041.0\cppwinrt"/>
 				</Compiler>
 				<MakeCommands>
-					<Build command="nmake /NOLOGO /f C:\Users\admin\Desktop\testWinprop\cmake-build-debug\Makefile VERBOSE=1 outdoor_trajectory/fast"/>
-					<CompileFile command="nmake /NOLOGO /f C:\Users\admin\Desktop\testWinprop\cmake-build-debug\Makefile VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="nmake /NOLOGO /f C:\Users\admin\Desktop\testWinprop\cmake-build-debug\Makefile VERBOSE=1 clean"/>
-					<DistClean command="nmake /NOLOGO /f C:\Users\admin\Desktop\testWinprop\cmake-build-debug\Makefile VERBOSE=1 clean"/>
+					<Build command="nmake /NOLOGO /f E:\Desktop\testWinprop\cmake-build-debug\Makefile VERBOSE=1 outdoor_trajectory/fast"/>
+					<CompileFile command="nmake /NOLOGO /f E:\Desktop\testWinprop\cmake-build-debug\Makefile VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="nmake /NOLOGO /f E:\Desktop\testWinprop\cmake-build-debug\Makefile VERBOSE=1 clean"/>
+					<DistClean command="nmake /NOLOGO /f E:\Desktop\testWinprop\cmake-build-debug\Makefile VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="edit_cache">
-				<Option working_dir="C:/Users/admin/Desktop/testWinprop/cmake-build-debug"/>
+				<Option working_dir="E:/Desktop/testWinprop/cmake-build-debug"/>
 				<Option type="4"/>
 				<MakeCommands>
-					<Build command="nmake /NOLOGO /f C:\Users\admin\Desktop\testWinprop\cmake-build-debug\Makefile VERBOSE=1 edit_cache"/>
-					<CompileFile command="nmake /NOLOGO /f C:\Users\admin\Desktop\testWinprop\cmake-build-debug\Makefile VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="nmake /NOLOGO /f C:\Users\admin\Desktop\testWinprop\cmake-build-debug\Makefile VERBOSE=1 clean"/>
-					<DistClean command="nmake /NOLOGO /f C:\Users\admin\Desktop\testWinprop\cmake-build-debug\Makefile VERBOSE=1 clean"/>
+					<Build command="nmake /NOLOGO /f E:\Desktop\testWinprop\cmake-build-debug\Makefile VERBOSE=1 edit_cache"/>
+					<CompileFile command="nmake /NOLOGO /f E:\Desktop\testWinprop\cmake-build-debug\Makefile VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="nmake /NOLOGO /f E:\Desktop\testWinprop\cmake-build-debug\Makefile VERBOSE=1 clean"/>
+					<DistClean command="nmake /NOLOGO /f E:\Desktop\testWinprop\cmake-build-debug\Makefile VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="rebuild_cache">
-				<Option working_dir="C:/Users/admin/Desktop/testWinprop/cmake-build-debug"/>
+				<Option working_dir="E:/Desktop/testWinprop/cmake-build-debug"/>
 				<Option type="4"/>
 				<MakeCommands>
-					<Build command="nmake /NOLOGO /f C:\Users\admin\Desktop\testWinprop\cmake-build-debug\Makefile VERBOSE=1 rebuild_cache"/>
-					<CompileFile command="nmake /NOLOGO /f C:\Users\admin\Desktop\testWinprop\cmake-build-debug\Makefile VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="nmake /NOLOGO /f C:\Users\admin\Desktop\testWinprop\cmake-build-debug\Makefile VERBOSE=1 clean"/>
-					<DistClean command="nmake /NOLOGO /f C:\Users\admin\Desktop\testWinprop\cmake-build-debug\Makefile VERBOSE=1 clean"/>
+					<Build command="nmake /NOLOGO /f E:\Desktop\testWinprop\cmake-build-debug\Makefile VERBOSE=1 rebuild_cache"/>
+					<CompileFile command="nmake /NOLOGO /f E:\Desktop\testWinprop\cmake-build-debug\Makefile VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="nmake /NOLOGO /f E:\Desktop\testWinprop\cmake-build-debug\Makefile VERBOSE=1 clean"/>
+					<DistClean command="nmake /NOLOGO /f E:\Desktop\testWinprop\cmake-build-debug\Makefile VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 		</Build>
-		<Unit filename="C:/Users/admin/Desktop/testWinprop/indoor_time_variant.cpp">
+		<Unit filename="E:/Desktop/testWinprop/indoor_time_variant.cpp">
 			<Option target="indoor_time_variant"/>
 		</Unit>
-		<Unit filename="C:/Users/admin/Desktop/testWinprop/indoor_trajectory.cpp">
+		<Unit filename="E:/Desktop/testWinprop/indoor_trajectory.cpp">
 			<Option target="indoor_trajectory"/>
 		</Unit>
-		<Unit filename="C:/Users/admin/Desktop/testWinprop/outdoor_trajectory.cpp">
+		<Unit filename="E:/Desktop/testWinprop/outdoor_trajectory.cpp">
 			<Option target="outdoor_trajectory"/>
 		</Unit>
-		<Unit filename="C:/Users/admin/Desktop/testWinprop/CMakeLists.txt">
+		<Unit filename="E:/Desktop/testWinprop/CMakeLists.txt">
 			<Option virtualFolder="CMake Files\"/>
 		</Unit>
 	</Project>
