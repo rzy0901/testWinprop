@@ -15,10 +15,15 @@ target_include_directories(indoor_time_variant PRIVATE "D:/Program Files/Altair/
 #target_compile_features(indoor_time_variant PUBLIC cxx_auto_type PRIVATE cxx_variadic_templates)
 target_link_libraries(indoor_time_variant PRIVATE Engine)
 
-add_executable(indoor_trajectory indoor_trajectory.cpp)
-target_compile_definitions(indoor_trajectory PRIVATE API_DATA_FOLDER=\"${PROJECT_SOURCE_DIR}/data/\" _SBCS _DLL_ENGINE_IMPORT)
-target_include_directories(indoor_trajectory PRIVATE "D:/Program Files/Altair/2022/feko/api/winprop/source")
-target_link_libraries(indoor_trajectory PRIVATE Engine)
+add_executable(indoor_trajectory_csv indoor_trajectory_csv.cpp)
+target_compile_definitions(indoor_trajectory_csv PRIVATE API_DATA_FOLDER=\"${PROJECT_SOURCE_DIR}/data/\" _SBCS _DLL_ENGINE_IMPORT)
+target_include_directories(indoor_trajectory_csv PRIVATE "D:/Program Files/Altair/2022/feko/api/winprop/source")
+target_link_libraries(indoor_trajectory_csv PRIVATE Engine)
+
+add_executable(indoor_trajectory_str indoor_trajectory_str.cpp)
+target_compile_definitions(indoor_trajectory_str PRIVATE API_DATA_FOLDER=\"${PROJECT_SOURCE_DIR}/data/\" _SBCS _DLL_ENGINE_IMPORT)
+target_include_directories(indoor_trajectory_str PRIVATE "D:/Program Files/Altair/2022/feko/api/winprop/source")
+target_link_libraries(indoor_trajectory_str PRIVATE Engine)
 
 add_executable(outdoor_trajectory outdoor_trajectory.cpp)
 target_compile_definitions(outdoor_trajectory PRIVATE API_DATA_FOLDER=\"${PROJECT_SOURCE_DIR}/data/\" _SBCS _DLL_ENGINE_IMPORT)

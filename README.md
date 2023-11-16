@@ -21,7 +21,7 @@
   
   |                | Indoor                                                   | Outdoor (Urban)                                              |
   | -------------- | -------------------------------------------------------- | ---------------------------------------------------- |
-  | Trajectory     | [indoor_trajectory.cpp](./indoor_trajectory.cpp)         | [outdoor_trajectory.cpp](outdoor_trajectory.cpp) |
+  | Trajectory     | [indoor_trajectory.cpp](./indoor_trajectory_csv.cpp)         | [outdoor_trajectory.cpp](outdoor_trajectory.cpp) |
   | Time variant | [indoor_time_variant.cpp](./indoor_time_variant.cpp) | Not completed yet (Treated as indoor.)                |
   | Ray-Tracing    | SRT                                                      | SRT & DPM & IRT                                      |
   
@@ -31,7 +31,7 @@
 
     |                                                          | TX (10W)          | RX          | Ray-Tracing | Specifications     | Prediction Height |
     | -------------------------------------------------------- | ----------- | ----------- | ----------- | ------------------ | ---------------- |
-    | [indoor_trajectory.cpp](./indoor_trajectory.cpp)         | omni, 1.25m, 2000 MHz | omni, 1.25m | SRT         | 1m/s RX            | 1.25m            |
+    | [indoor_trajectory.cpp](./indoor_trajectory_csv.cpp)         | omni, 1.25m, 2000 MHz | omni, 1.25m | SRT         | 1m/s RX            | 1.25m            |
     | [indoor_time_variant.cpp](./indoor_time_variant.cpp) | omni, 1.25m, 2000 MHz | omni, 1.25m | SRT         | 1m/s Moving Object | 1.25m            |
     | [outdoor_trajectory.cpp](outdoor_trajectory.cpp)     | omni, 15m, 2000 MHz | omni, 1.5m| DPM, SRT (Treated as indoor), IRT (Preprocess the database) | 10m/s moving RX | 1.5m |
     | Time variant scenario in outdoor (Not completed yet.)                                                       |             |             |             |                    |                  |

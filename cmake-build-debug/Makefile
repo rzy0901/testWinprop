@@ -119,17 +119,30 @@ indoor_time_variant\fast:
 .PHONY : indoor_time_variant\fast
 
 #=============================================================================
-# Target rules for targets named indoor_trajectory
+# Target rules for targets named indoor_trajectory_csv
 
 # Build rule for target.
-indoor_trajectory: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 /nologo -$(MAKEFLAGS) indoor_trajectory
-.PHONY : indoor_trajectory
+indoor_trajectory_csv: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 /nologo -$(MAKEFLAGS) indoor_trajectory_csv
+.PHONY : indoor_trajectory_csv
 
 # fast build rule for target.
-indoor_trajectory\fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\indoor_trajectory.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\indoor_trajectory.dir\build
-.PHONY : indoor_trajectory\fast
+indoor_trajectory_csv\fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\indoor_trajectory_csv.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\indoor_trajectory_csv.dir\build
+.PHONY : indoor_trajectory_csv\fast
+
+#=============================================================================
+# Target rules for targets named indoor_trajectory_str
+
+# Build rule for target.
+indoor_trajectory_str: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 /nologo -$(MAKEFLAGS) indoor_trajectory_str
+.PHONY : indoor_trajectory_str
+
+# fast build rule for target.
+indoor_trajectory_str\fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\indoor_trajectory_str.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\indoor_trajectory_str.dir\build
+.PHONY : indoor_trajectory_str\fast
 
 #=============================================================================
 # Target rules for targets named outdoor_trajectory
@@ -168,29 +181,53 @@ indoor_time_variant.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\indoor_time_variant.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\indoor_time_variant.dir\indoor_time_variant.cpp.s
 .PHONY : indoor_time_variant.cpp.s
 
-indoor_trajectory.obj: indoor_trajectory.cpp.obj
-.PHONY : indoor_trajectory.obj
+indoor_trajectory_csv.obj: indoor_trajectory_csv.cpp.obj
+.PHONY : indoor_trajectory_csv.obj
 
 # target to build an object file
-indoor_trajectory.cpp.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\indoor_trajectory.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\indoor_trajectory.dir\indoor_trajectory.cpp.obj
-.PHONY : indoor_trajectory.cpp.obj
+indoor_trajectory_csv.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\indoor_trajectory_csv.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\indoor_trajectory_csv.dir\indoor_trajectory_csv.cpp.obj
+.PHONY : indoor_trajectory_csv.cpp.obj
 
-indoor_trajectory.i: indoor_trajectory.cpp.i
-.PHONY : indoor_trajectory.i
+indoor_trajectory_csv.i: indoor_trajectory_csv.cpp.i
+.PHONY : indoor_trajectory_csv.i
 
 # target to preprocess a source file
-indoor_trajectory.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\indoor_trajectory.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\indoor_trajectory.dir\indoor_trajectory.cpp.i
-.PHONY : indoor_trajectory.cpp.i
+indoor_trajectory_csv.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\indoor_trajectory_csv.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\indoor_trajectory_csv.dir\indoor_trajectory_csv.cpp.i
+.PHONY : indoor_trajectory_csv.cpp.i
 
-indoor_trajectory.s: indoor_trajectory.cpp.s
-.PHONY : indoor_trajectory.s
+indoor_trajectory_csv.s: indoor_trajectory_csv.cpp.s
+.PHONY : indoor_trajectory_csv.s
 
 # target to generate assembly for a file
-indoor_trajectory.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\indoor_trajectory.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\indoor_trajectory.dir\indoor_trajectory.cpp.s
-.PHONY : indoor_trajectory.cpp.s
+indoor_trajectory_csv.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\indoor_trajectory_csv.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\indoor_trajectory_csv.dir\indoor_trajectory_csv.cpp.s
+.PHONY : indoor_trajectory_csv.cpp.s
+
+indoor_trajectory_str.obj: indoor_trajectory_str.cpp.obj
+.PHONY : indoor_trajectory_str.obj
+
+# target to build an object file
+indoor_trajectory_str.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\indoor_trajectory_str.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\indoor_trajectory_str.dir\indoor_trajectory_str.cpp.obj
+.PHONY : indoor_trajectory_str.cpp.obj
+
+indoor_trajectory_str.i: indoor_trajectory_str.cpp.i
+.PHONY : indoor_trajectory_str.i
+
+# target to preprocess a source file
+indoor_trajectory_str.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\indoor_trajectory_str.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\indoor_trajectory_str.dir\indoor_trajectory_str.cpp.i
+.PHONY : indoor_trajectory_str.cpp.i
+
+indoor_trajectory_str.s: indoor_trajectory_str.cpp.s
+.PHONY : indoor_trajectory_str.s
+
+# target to generate assembly for a file
+indoor_trajectory_str.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\indoor_trajectory_str.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\indoor_trajectory_str.dir\indoor_trajectory_str.cpp.s
+.PHONY : indoor_trajectory_str.cpp.s
 
 outdoor_trajectory.obj: outdoor_trajectory.cpp.obj
 .PHONY : outdoor_trajectory.obj
@@ -225,14 +262,18 @@ help:
 	@echo ... edit_cache
 	@echo ... rebuild_cache
 	@echo ... indoor_time_variant
-	@echo ... indoor_trajectory
+	@echo ... indoor_trajectory_csv
+	@echo ... indoor_trajectory_str
 	@echo ... outdoor_trajectory
 	@echo ... indoor_time_variant.obj
 	@echo ... indoor_time_variant.i
 	@echo ... indoor_time_variant.s
-	@echo ... indoor_trajectory.obj
-	@echo ... indoor_trajectory.i
-	@echo ... indoor_trajectory.s
+	@echo ... indoor_trajectory_csv.obj
+	@echo ... indoor_trajectory_csv.i
+	@echo ... indoor_trajectory_csv.s
+	@echo ... indoor_trajectory_str.obj
+	@echo ... indoor_trajectory_str.i
+	@echo ... indoor_trajectory_str.s
 	@echo ... outdoor_trajectory.obj
 	@echo ... outdoor_trajectory.i
 	@echo ... outdoor_trajectory.s
