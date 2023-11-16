@@ -103,24 +103,28 @@ int main()
             cout << " Can not open " << filename << endl;
         }
         /*time(s) field strength(dBuV/m) delay(ns)*/
-        myfile << "TimeSteps,Delay,FieldStrength,DopplerShift,AoD_Azimuth,AoA_Azimuth,AoD_Elevation,AoA_Elevation"<<endl;
+        myfile << "TimeSteps,ResultPoints,Delay,FieldStrength,DopplerShift,AoD_Azimuth,AoA_Azimuth,AoD_Elevation,AoA_Elevation"<<endl;
         // begin the loop for each time stamps
-        for (int count = 0; count < 8; count++) {
+        for (int count = 0; count < NbrTimeInstances; count++) {
             if (count == 0) {
                 WinPropMore.TimeInstances = WinPropMore.TimeInstances;
             }
             else {
                 WinPropMore.TimeInstances = WinPropMore.TimeInstances + 1;
+                OutputResults.AdditionalResultsASCII = 0;
+                OutputResults.StrFilePropPaths = 0;
+                OutputResults.RayFilePropPaths = 0;
             }
             /* ------------------------------------ Start prediction -------------------------------- */
             WinProp_Predict_Trajectories(ProjectHandle, &WinPropAntenna, &WinPropTrajectory,
                                          1, nullptr, &WinPropMore,
                                          &TrajectoryList, nullptr, nullptr);
             for (int i = 0; i < TrajectoryList->trajectories[0].NrSampledPoints; i++) {
-                for (int j = 0; j < TrajectoryList->trajectories[0].ResultPoints.ResultPoints->Rays.NrRays; j++) {
+                for (int j = 0; j < TrajectoryList->trajectories[0].ResultPoints.ResultPoints[i].Rays.NrRays; j++) {
                     /*RayMatrix->Rays(NbrHeights,Columns,Lines)*/
                     double *timeSteps_ptr = TrajectoryList->trajectories[0].ResultPoints.TimeSteps;
                     myfile << *timeSteps_ptr << ","
+                           << i + 1  << ","
                            << TrajectoryList->trajectories[0].ResultPoints.ResultPoints[i].Rays.Rays[j].Delay << ","
                            << TrajectoryList->trajectories[0].ResultPoints.ResultPoints[i].Rays.Rays[j].FieldStrength
                            << ","
