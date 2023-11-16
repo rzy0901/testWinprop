@@ -137,8 +137,6 @@ int main()
         }
         cout << endl;
 
-//        cout << RayMatrix->Rays[0][x][y].Rays[0].FieldVectors.PolHfieldX << RayMatrix->Rays[0][x][y].Rays[0].FieldVectors.PolHfieldY << RayMatrix->Rays[0][x][y].Rays[0].FieldVectors.PolHfieldZ<< RayMatrix->Rays[0][x][y].Rays[0].FieldVectors.PolVfieldX << RayMatrix->Rays[0][x][y].Rays[0].FieldVectors.PolVfieldY << RayMatrix->Rays[0][x][y].Rays[0].FieldVectors.PolVfieldZ << endl;
-        myfile.close();
 
         WinProp_Close(ProjectHandle);
     }
