@@ -89,14 +89,14 @@ int main()
 
         /* Definition of outputs to be computed and written in WinProp format. */
         WinPropMore.OutputResults = &OutputResults;
-        OutputResults.ResultPath = API_DATA_FOLDER "indoor_trajectory"; // Output data directory
+        OutputResults.ResultPath = API_DATA_FOLDER "indoor_trajectory_csv"; // Output data directory
         WinPropMore.TimeInstances = timeInstances;
         OutputResults.AdditionalResultsASCII = 1;
         OutputResults.StrFilePropPaths = 1;
         OutputResults.RayFilePropPaths = 1;
         /* Further parameters: With filtering. */
         WinPropMore.ResultFiltering = 1;
-        char* filename = API_DATA_FOLDER "indoor_trajectory/CIR.csv";
+        char* filename = API_DATA_FOLDER "indoor_trajectory_csv/CIR.csv";
         ofstream myfile(filename);
         if(!myfile.is_open())
         {

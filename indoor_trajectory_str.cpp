@@ -88,7 +88,7 @@ int main()
 
         /* Definition of outputs to be computed and written in WinProp format. */
         WinPropMore.OutputResults = &OutputResults;
-        OutputResults.ResultPath = API_DATA_FOLDER "indoor_trajectory"; // Output data directory
+        OutputResults.ResultPath = API_DATA_FOLDER "indoor_trajectory_str"; // Output data directory
         WinPropMore.TimeInstances = timeInstances;
         OutputResults.AdditionalResultsASCII = 1;
         OutputResults.StrFilePropPaths = 1;
