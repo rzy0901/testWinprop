@@ -72,7 +72,7 @@ int main()
     if (Error == 0) {
         /* Definition of prediction trajectory and resolution. */
         WinPropTrajectory.Name = "Square-Shape";
-        WinPropTrajectory.NrPoints = 4; // Number of corners of the trajectory.
+        WinPropTrajectory.NrPoints = 5; // Number of corners of the trajectory.
         WinPropTrajectory.samplingResolution = 0.1;
         WinProp_Trajectory_Point points[5];
         points[0] = {COORDPOINT{6.00,9.50,1},2.5,0,0,0};
