@@ -4,6 +4,7 @@
 #include <iostream>
 #include <fstream>
 #include <stdio.h>
+#include <stdlib.h>
 #include <cstring>
 #include "Interface/Engine.h"
 #include "Interface/Convert.h"
@@ -39,6 +40,10 @@ int main()
     WinProp_Additional  WinPropMore;
     WinProp_Propagation_Results OutputResults;
     WinProp_ResultTrajectoryList *TrajectoryList = NULL;
+    const char *delete_file_path[3];
+    delete_file_path[0] = API_DATA_FOLDER "indoor_trajectory_csv/TX Power.fpp";
+    delete_file_path[1] = API_DATA_FOLDER "indoor_trajectory_csv/TX Power.txt";
+    delete_file_path[2] = API_DATA_FOLDER "indoor_trajectory_csv/TX Rays.ray";
 //    double              PredictionHeight = 1.25;
     /* --------------------------------- Initialization of structures --------------------------- */
     WinProp_Structure_Init_Scenario(&WinPropScenario);
@@ -66,13 +71,15 @@ int main()
     /* --------------------------------------- Set up prediction --------------------------------- */
     if (Error == 0) {
         /* Definition of prediction trajectory and resolution. */
-        WinPropTrajectory.Name = "L-shape";
-        WinPropTrajectory.NrPoints = 3; // Number of corners of the trajectory.
+        WinPropTrajectory.Name = "Square-Shape";
+        WinPropTrajectory.NrPoints = 4; // Number of corners of the trajectory.
         WinPropTrajectory.samplingResolution = 0.1;
-        WinProp_Trajectory_Point points[3];
-        points[0] = {COORDPOINT{6.00,1.50,1},1.0,0,0,0};
-        points[1] = {COORDPOINT{3.5,1.5,1},1.0,0,0,0};
-        points[2] = {COORDPOINT{3.5,6.5,1},1.0,0,0,0};
+        WinProp_Trajectory_Point points[5];
+        points[0] = {COORDPOINT{6.00,9.50,1},2.5,0,0,0};
+        points[1] = {COORDPOINT{1.00,9.50,1},2.5,0,0,0};
+        points[2] = {COORDPOINT{1.00,4.50,1},2.5,0,0,0};
+        points[3] = {COORDPOINT{6.00,4.50,1},2.5,0,0,0};
+        points[4] = {COORDPOINT{6.00,9.50,1},2.5,0,0,0};
         WinPropTrajectory.Points = points;
         WinPropTrajectory.PointSize = 0.1; // Resolution for each sampling point, default by 1.
 
@@ -143,9 +150,14 @@ int main()
             }
         }
         cout << endl;
-//        cout << RayMatrix->Rays[0][x][y].Rays[0].FieldVectors.PolHfieldX << RayMatrix->Rays[0][x][y].Rays[0].FieldVectors.PolHfieldY << RayMatrix->Rays[0][x][y].Rays[0].FieldVectors.PolHfieldZ<< RayMatrix->Rays[0][x][y].Rays[0].FieldVectors.PolVfieldX << RayMatrix->Rays[0][x][y].Rays[0].FieldVectors.PolVfieldY << RayMatrix->Rays[0][x][y].Rays[0].FieldVectors.PolVfieldZ << endl;
         myfile.close();
         WinProp_Close(ProjectHandle);
+        // remove other files and only leave the CIR.csv file.
+        // Because during many loops, other files will not accurate, we can check the other files in the "indoor_trajectory_str" folder.
+        for (auto & l : delete_file_path){
+            remove(l);
+        }
+
     }
     return 0;
 }

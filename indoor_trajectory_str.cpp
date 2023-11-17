@@ -68,10 +68,12 @@ int main()
         WinPropTrajectory.Name = "L-shape";
         WinPropTrajectory.NrPoints = 3; // Number of corners of the trajectory.
         WinPropTrajectory.samplingResolution = 0.1;
-        WinProp_Trajectory_Point points[3];
-        points[0] = {COORDPOINT{6.00,1.50,1},1.0,0,0,0};
-        points[1] = {COORDPOINT{3.5,1.5,1},1.0,0,0,0};
-        points[2] = {COORDPOINT{3.5,6.5,1},1.0,0,0,0};
+        WinProp_Trajectory_Point points[5];
+        points[0] = {COORDPOINT{6.00,9.50,1},2.5,0,0,0};
+        points[1] = {COORDPOINT{1.00,9.50,1},2.5,0,0,0};
+        points[2] = {COORDPOINT{1.00,4.50,1},2.5,0,0,0};
+        points[3] = {COORDPOINT{6.00,4.50,1},2.5,0,0,0};
+        points[4] = {COORDPOINT{6.00,9.50,1},2.5,0,0,0};
         WinPropTrajectory.Points = points;
         WinPropTrajectory.PointSize = 0.1; // Resolution for each sampling point, default by 1.
 
