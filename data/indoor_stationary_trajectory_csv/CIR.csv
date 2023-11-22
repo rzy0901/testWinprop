@@ -1,4 +1,4 @@
-TimeSteps,ResultPoints,Delay,FieldStrength,DopplerShift,AoD_Azimuth,AoA_Azimuth,AoD_Elevation,AoA_Elevation
+TimeSteps,ResultPoints,Delay(ns),FieldStrength(uV/m),DopplerShift(Hz),AoD_Azimuth(0-360),AoA_Azimuth(0-360),AoD_Elevation(0-180),AoA_Elevation(0-180)
 0,1,11.8227,4.8861e+06,0,45,225,94.0447,85.9553,
 0,1,51.3845,251679,0,254.249,243.572,90.9299,89.0701,
 0,1,53.3925,198359,0,247.694,239.594,90.8949,89.1051,

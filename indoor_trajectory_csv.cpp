@@ -110,7 +110,7 @@ int main()
             cout << " Can not open " << filename << endl;
         }
         /*time(s) field strength(dBuV/m) delay(ns)*/
-        myfile << "TimeSteps,ResultPoints,Delay,FieldStrength,DopplerShift,AoD_Azimuth,AoA_Azimuth,AoD_Elevation,AoA_Elevation"<<endl;
+        myfile << "TimeSteps,ResultPoints,Delay(ns),FieldStrength(uV/m),DopplerShift(Hz),AoD_Azimuth(0-360),AoA_Azimuth(0-360),AoD_Elevation(0-180),AoA_Elevation(0-180)"<<endl;
         // begin the loop for each time stamps
         for (int count = 0; count < NbrTimeInstances; count++) {
             if (count == 0) {
