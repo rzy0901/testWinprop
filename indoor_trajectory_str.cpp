@@ -95,6 +95,8 @@ int main()
         OutputResults.AdditionalResultsASCII = 1;
         OutputResults.StrFilePropPaths = 1;
         OutputResults.RayFilePropPaths = 1;
+        OutputResults.FieldStrength = 1;
+        OutputResults.Delay = 1;
         /* Further parameters: With filtering. */
         WinPropMore.ResultFiltering = 1;
 
