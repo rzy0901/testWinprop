@@ -20,9 +20,7 @@ int _STD_CALL CallbackMessage(const char *Text);
 int _STD_CALL CallbackProgress(int value, const char* text);
 int _STD_CALL CallbackError(const char *Message, int Mode);
 void write_ascii(WinProp_Result Resultmatrix, char* Filename);
-
 using namespace std;
-
 /*Macro API_DATA_FOLDER was defined in CMakeLists.txt.*/
 #ifndef API_DATA_FOLDER
 #define API_DATA_FOLDER "D:/Codes/testWinprop/data/"
@@ -39,6 +37,7 @@ int main()
     WinProp_Additional  WinPropMore;
     WinProp_Propagation_Results OutputResults;
     WinProp_ResultTrajectoryList *TrajectoryList = NULL;
+    const char* delete_file_path = API_DATA_FOLDER "indoor_trajectory/TX Power.fpp";
 //    double              PredictionHeight = 1.25;
     /* --------------------------------- Initialization of structures --------------------------- */
     WinProp_Structure_Init_Scenario(&WinPropScenario);
@@ -90,13 +89,13 @@ int main()
 
         /* Definition of outputs to be computed and written in WinProp format. */
         WinPropMore.OutputResults = &OutputResults;
-        OutputResults.ResultPath = API_DATA_FOLDER "indoor_trajectory_str"; // Output data directory
+        OutputResults.ResultPath = API_DATA_FOLDER "indoor_trajectory"; // Output data directory
         WinPropMore.TimeInstances = timeInstances;
-        OutputResults.AdditionalResultsASCII = 1;
+//        OutputResults.AdditionalResultsASCII = 1;
         OutputResults.StrFilePropPaths = 1;
-        OutputResults.RayFilePropPaths = 1;
-        OutputResults.FieldStrength = 1;
-        OutputResults.Delay = 1;
+//        OutputResults.RayFilePropPaths = 1;
+//        OutputResults.FieldStrength = 1;
+//        OutputResults.Delay = 1;
         /* Further parameters: With filtering. */
         WinPropMore.ResultFiltering = 1;
 
@@ -105,6 +104,8 @@ int main()
                                      1, nullptr,&WinPropMore,
                                      &TrajectoryList,nullptr,nullptr);
         WinProp_Close(ProjectHandle);
+        // delete the file TX Power.fpp
+        remove(delete_file_path);
     }
     return 0;
 }

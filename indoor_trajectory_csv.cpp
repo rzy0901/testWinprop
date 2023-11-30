@@ -4,8 +4,10 @@
 #include <iostream>
 #include <fstream>
 #include <stdio.h>
+#include <cstdio>
 #include <stdlib.h>
 #include <cstring>
+#include <string>
 #include "Interface/Engine.h"
 #include "Interface/Convert.h"
 #include "Interface/OutdoorPlugIn.h"
@@ -40,10 +42,7 @@ int main()
     WinProp_Additional  WinPropMore;
     WinProp_Propagation_Results OutputResults;
     WinProp_ResultTrajectoryList *TrajectoryList = NULL;
-    const char *delete_file_path[3];
-    delete_file_path[0] = API_DATA_FOLDER "indoor_trajectory_csv/TX Power.fpp";
-    delete_file_path[1] = API_DATA_FOLDER "indoor_trajectory_csv/TX Power.txt";
-    delete_file_path[2] = API_DATA_FOLDER "indoor_trajectory_csv/TX Rays.ray";
+    const char* delete_file_path = API_DATA_FOLDER "indoor_trajectory/TX Power.fpp";
 //    double              PredictionHeight = 1.25;
     /* --------------------------------- Initialization of structures --------------------------- */
     WinProp_Structure_Init_Scenario(&WinPropScenario);
@@ -96,14 +95,14 @@ int main()
 
         /* Definition of outputs to be computed and written in WinProp format. */
         WinPropMore.OutputResults = &OutputResults;
-        OutputResults.ResultPath = API_DATA_FOLDER "indoor_trajectory_csv"; // Output data directory
+        OutputResults.ResultPath = API_DATA_FOLDER "indoor_trajectory"; // Output data directory
         WinPropMore.TimeInstances = timeInstances;
-        OutputResults.AdditionalResultsASCII = 1;
-        OutputResults.StrFilePropPaths = 1;
-        OutputResults.RayFilePropPaths = 1;
+        OutputResults.AdditionalResultsASCII = 1;  // write the output file TX Power.txt
+//        OutputResults.StrFilePropPaths = 1;
+//        OutputResults.RayFilePropPaths = 1;
         /* Further parameters: With filtering. */
         WinPropMore.ResultFiltering = 1;
-        char* filename = API_DATA_FOLDER "indoor_trajectory_csv/CIR.csv";
+        char* filename = API_DATA_FOLDER "indoor_trajectory/CIR.csv";
         ofstream myfile(filename);
         if(!myfile.is_open())
         {
@@ -117,10 +116,14 @@ int main()
                 WinPropMore.TimeInstances = WinPropMore.TimeInstances;
             }
             else {
+                std::string newfileindex = std::to_string(count-1);
+                std::string newfilename = API_DATA_FOLDER "indoor_trajectory/TX Power(" + newfileindex + ").txt";
+                std::rename(API_DATA_FOLDER "indoor_trajectory/TX Power.txt",
+                            newfilename.c_str());
                 WinPropMore.TimeInstances = WinPropMore.TimeInstances + 1;
-                OutputResults.AdditionalResultsASCII = 0;
-                OutputResults.StrFilePropPaths = 0;
-                OutputResults.RayFilePropPaths = 0;
+//                OutputResults.AdditionalResultsASCII = 0;
+//                OutputResults.StrFilePropPaths = 0;
+//                OutputResults.RayFilePropPaths = 0;
             }
             /* ------------------------------------ Start prediction -------------------------------- */
             WinProp_Predict_Trajectories(ProjectHandle, &WinPropAntenna, &WinPropTrajectory,
@@ -152,12 +155,12 @@ int main()
         cout << endl;
         myfile.close();
         WinProp_Close(ProjectHandle);
-        // remove other files and only leave the CIR.csv file.
+        // rename the last loop file--TX Power.txt
+        std::rename(API_DATA_FOLDER "indoor_trajectory/TX Power.txt",
+                    API_DATA_FOLDER "indoor_trajectory/TX Power(7).txt");
+        // remove other files and only leave the CIR.csv and some TX Power.txt file.
         // Because during many loops, other files will not accurate, we can check the other files in the "indoor_trajectory_str" folder.
-        for (auto & l : delete_file_path){
-            remove(l);
-        }
-
+        remove(delete_file_path);
     }
     return 0;
 }

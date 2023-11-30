@@ -1,6 +1,12 @@
-## Channel Modeling and Simulation Based on Altair Winprop 
-### Problem and Notes Recording
+## Channel Modeling and Simulation Based on Altair Winprop C++ API
 
-### 2023.11.22
-1. The unit for FieldStrength in CIR.csv file is uV/m, and the unit for FieldStrength in TX Rays.str file is dBuV/m. The conversion of them is **20*log10** (is not 10*log10 because the square of the FieldStrength is the power).
-2. 
+**Run the programs again to produce the simulation results.**
++ Simulation goal: simulate the channel variations and received power variations due to impacts of moving objects or moving RXs.
+
++ Environment settings: `MSVC(VS 2019)` + `Clion 2023` + `WinProp API 2022 for windows`. Use `CMakeLists.txt` to compile the project.
+
+## How to Run and Use
+- Firstly, run the ./indoor_trajectory_csv.cpp to get the CIR.csv and some TX Power.txt files.
+- Then, run the ./indoor_trajectory_str.cpp to get the TX Rays.str file.
+- Finally, open the ./data/indoor_trajectory folder to see the above result files.
+

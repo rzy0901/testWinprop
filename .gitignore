@@ -1,3 +1,4 @@
 .idea/
 cmake-build-debug/
-
+indoor_stationary_trajectory_csv.cpp
+indoor_stationary_trajectory_str.cpp
